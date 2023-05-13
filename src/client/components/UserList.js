@@ -1,26 +1,24 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers } from '../slices/userSlice';
+import React from 'react';
 
-const UserList = () => {
-  const dispatch = useDispatch();
-  const userState = useSelector((state) => state.users);
+const UserList = ({ users }) => {
+  // const dispatch = useDispatch();
+  // const userState = useSelector((state) => state.users);
 
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchUsers());
+  // }, []);
 
-  if (userState.status === 'loading') {
-    return userState.status;
-  }
-  if (userState.error) {
-    return userState.error;
-  }
+  // if (userState.status === 'loading') {
+  //   return userState.status;
+  // }
+  // if (userState.error) {
+  //   return userState.error;
+  // }
 
   return (
     <div>
       <div>
-        {userState.data.map((user) => (
+        {users.map((user) => (
           <div key={user.id}>{user.name}</div>
         ))}
       </div>

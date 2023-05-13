@@ -2,23 +2,23 @@ import { configureStore } from '@reduxjs/toolkit';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import { StaticRouter } from 'react-router-dom/server';
 
-import ClientRoutes from '../client/components/ClientRoutes';
-import userReducer from '../client/slices/userSlice'
+import userReducer from '../client/slices/userSlice';
+import { renderRoutes } from 'react-router-config';
+import routes from '../client/routes';
+import { StaticRouter } from 'react-router-dom';
 
-export const renderer = (req, res) => {
-  const store = configureStore({ reducer: {users: userReducer} });
-
+export const renderer = (req, store) => {
   let content = renderToString(
     <Provider store={store}>
-      <StaticRouter location={req.url}>
-        <ClientRoutes />
+      <StaticRouter location={req.url} context={{}}>
+        <div>{renderRoutes(routes)}</div>
       </StaticRouter>
     </Provider>
   );
 
   const preloadedState = store.getState();
+
   return `
     <html>
       <head></head>
