@@ -1,8 +1,7 @@
 // import React from 'react';
 // import { Route, Routes } from 'react-router-dom';
-import React from 'react';
-import Home, { fetchData } from './components/Home';
-import Test from './components/Test';
+import Home from './pages/Home';
+import Test from './pages/Test';
 
 // const ClientRoutes = () => {
 //   return (
@@ -17,14 +16,13 @@ import Test from './components/Test';
 
 const routes = [
   {
+    ...Home,
     path: '/',
-    component: Home,
     exact: true,
-    fetchData,
   },
   {
+    ...Test,
     path: '/test',
-    component: Test,
   },
 ];
 

@@ -1,12 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 
-import userReducer from '../client/slices/userSlice';
 import { renderRoutes } from 'react-router-config';
-import routes from '../client/routes';
 import { StaticRouter } from 'react-router-dom';
+
+import routes from '../client/routes';
 
 export const renderer = (req, store) => {
   let content = renderToString(

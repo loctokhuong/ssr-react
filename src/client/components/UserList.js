@@ -1,27 +1,13 @@
 import React from 'react';
 
 const UserList = ({ users }) => {
-  // const dispatch = useDispatch();
-  // const userState = useSelector((state) => state.users);
-
-  // useEffect(() => {
-  //   dispatch(fetchUsers());
-  // }, []);
-
-  // if (userState.status === 'loading') {
-  //   return userState.status;
-  // }
-  // if (userState.error) {
-  //   return userState.error;
-  // }
-
   return (
     <div>
-      <div>
+      <ul>
         {users.map((user) => (
-          <div key={user.id}>{user.name}</div>
+          <li key={user.id}>{user.name}</li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

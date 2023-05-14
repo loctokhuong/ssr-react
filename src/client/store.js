@@ -3,5 +3,5 @@ import userReducer from './slices/userSlice';
 
 export default configureStore({
   reducer: { users: userReducer },
-  preloadedState: window?.__PRELOADED_STATE__,
+  preloadedState: window.__PRELOADED_STATE__,
 });

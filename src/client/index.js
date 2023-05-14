@@ -9,12 +9,20 @@ import routes from './routes';
 
 delete window.__PRELOADED_STATE__;
 
-const root = hydrateRoot(document.getElementById('root'));
-
-root.render(
+const App = (
   <Provider store={store}>
     <BrowserRouter>
       <div>{renderRoutes(routes)}</div>
     </BrowserRouter>
   </Provider>
 );
+
+hydrateRoot(document.getElementById('root'), App);
+
+// root.render(
+//   <Provider store={store}>
+//     <BrowserRouter>
+//       <div>{renderRoutes(routes)}</div>
+//     </BrowserRouter>
+//   </Provider>
+// );
