@@ -1,5 +1,6 @@
 // import React from 'react';
 // import { Route, Routes } from 'react-router-dom';
+import App from './App';
 import Home from './pages/Home';
 import Test from './pages/Test';
 
@@ -14,15 +15,31 @@ import Test from './pages/Test';
 
 // export default ClientRoutes;
 
+// const routes = [
+//   {
+//     ...Home,
+//     path: '/',
+//     exact: true,
+//   },
+//   {
+//     ...Test,
+//     path: '/test',
+//   },
+// ];
 const routes = [
   {
-    ...Home,
-    path: '/',
-    exact: true,
-  },
-  {
-    ...Test,
-    path: '/test',
+    ...App,
+    routes: [
+      {
+        ...Home,
+        path: '/',
+        exact: true,
+      },
+      {
+        ...Test,
+        path: '/test',
+      },
+    ],
   },
 ];
 
